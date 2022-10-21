@@ -12,6 +12,9 @@ router
     .get(usersControllers.getAllUsers)
     .post(usersControllers.saveUser)
 
+router.patch('/bulk-update', usersControllers.bulkUpdateUser)
+
+
 router
     .route('/:id')
     .get(viewCount, limiter, usersControllers.getUserDetail)

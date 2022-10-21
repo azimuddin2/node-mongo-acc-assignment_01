@@ -41,3 +41,18 @@ module.exports.deleteUser = (req, res) => {
     const userData = users.filter(user => user.id !== Number(id));
     res.send(userData);
 };
+
+
+module.exports.bulkUpdateUser = (req, res) => {
+    const ids = req.body;
+    const  newData = users.find(user => user.id === Number(ids));
+
+    newData.ids = Number(ids);
+    newData.gender = req.body.gender;
+    newData.name = req.body.name;
+    newData.contact = req.body.contact;
+    newData.address = req.body.address;
+    newData.photoUrl = req.body.photoUrl;
+
+    res.send(newData);
+};
